@@ -3,31 +3,34 @@ function reverseString(str) {
   for (let i = str.length - 1; i >= 0; i--) {
     revStr += str[i];
   }
-  return console.log(revStr);
+  return revStr;
 }
 
 reverseString("Hello");
 
 function findMax(arr) {
-  let max;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < arr[i + 1]) {
-      max = arr[i] + 1;
-    }
-    max = arr[i];
+  if (arr.length === 0) {
+    throw new Error("Empty array");
   }
-  return console.log(max);
+
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
 }
 
 findMax([1, 5, 3, 9]);
 
 function isPalindrome(word) {
   for (let i = 0; i < word.length / 2; i++) {
-    if (word[i] === word[word.length - 1 - i]) {
-      return console.log("true");
+    if (word[i] !== word[word.length - 1 - i]) {
+      return false;
     }
-    return console.log("false");
   }
+  return true;
 }
 
 isPalindrome("racecar");
